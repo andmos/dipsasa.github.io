@@ -7,7 +7,7 @@ tags: [CSharp, WPF, XAML, Ytelse]
 
 Neste generasjon av DIPS, DIPS Arena, er en Windows Desktop-applikasjon skrevet i WPF. 
 
-![Skjermbilde av DIPS Arena](../../../img/Arena.png)
+![Skjermbilde av DIPS Arena](../../../img/arena.png)
 
 WPF er et meget kraftig UI-rammeverk, men nesten alle tilfeller og situasjoner kan løses på flere måter. Dermed finnes det både gode og dårlige løsninger på de fleste utfordringer. Her er noe av det vi har lært om ytelse i WPF under en profileringsrunde vi har kjørt i vår.
 
@@ -38,7 +38,7 @@ Siden DIPS Arena er en modulær applikasjon, har vi funnet fram til noen egne pu
 
 Her er et worst case-eksempel på hvordan det kan se ut:
 
-![Timeline-visning fra en testapplikasjon](../../../img/Timeline.png)
+![Timeline-visning fra en testapplikasjon](../../../img/timeline.png)
 
 Se først på grafen `Visual throughput (FPS)`, lilla linje. Grafen går i bunn og brukeren opplever 0 FPS flere ganger.
 
@@ -51,7 +51,7 @@ Når vi har verifisert problemet, kan vi se på årsaken. `UI thread utilization
 
 Her et eksempel fra en modul DIPS Arena:
 
-![Eksempelprofilering av DIPS Arena modul](../../../img/Timeline-Arena.png)
+![Eksempelprofilering av DIPS Arena modul](../../../img/timeline-arena.png)
 
 [Dette er en Arena-modul som bruker for lang tid på å lastes pga. kompleks layout.](http://pelebyte.net/blog/2011/07/11/twelve-ways-to-improve-wpf-performance/#VisualTree) Kompleks i denne sammenhengen er å f.eks. bruke flere Grids og dype trær for å oppnå noe som egentlig krever kun et Grid. Tommelfingerregelen er at 1 000 visuelle elementer som skal legges ut, kan gi opptil 1 sekunds venting. Microsoft har en grense på 1 500 – 2 000 elementer i Visual Studio. 
 
@@ -75,7 +75,7 @@ Dette fungerer på vanlig Library-prosjekt ved å legge inn følgende i prosjekt
 
 DIPS Arena bruker [Managed Extensibility Framework (MEF)]( https://msdn.microsoft.com/en-us/library/dd460648(v=vs.110).aspx) for å sette sammen applikasjonen. De forskjellige skjermbildene kommer fra forskjellige moduler, og alt blir satt sammen når applikasjonen starter.
 
-![Modulær oppbygging](../../../img/PRISM.png)
+![Modulær oppbygging](../../../img/prism.png)
 
 Basert på funn fra profilering fant vi flere forbedringer rundt ressurshåndteringen i de forskjellige modulene:
 
