@@ -10,11 +10,33 @@ layout: default
         <time datetime="{{ page.date | date_to_xmlschema }}" 
               itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}
         </time>
-        by 
         <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <a href="{{ site.baseurl }}/authors/{{ page.author }}" itemprop="name">
-                {{ site.data.authors[page.author].name }}
-            </a>
+            {% assign authorCount = post.author | size %}
+        
+            {% if authorCount == 1 %}
+                {% assign author = page.author | first %}
+                <a href="{{ site.baseurl }}/authors/{{ author }}" itemprop="name">
+                    {{ site.data.authors[author].name }}
+                </a>
+            {% else %}
+                {% for author in page.author %}
+                    {% if forloop.first %}
+                        <a href="{{ site.baseurl }}/authors/{{ author }}" itemprop="name">
+                            {{ site.data.authors[author].name }}
+                        </a>
+                    {% elsif forloop.last %}
+                        &#38; 
+                        <a href="{{ site.baseurl }}/authors/{{ author }}" itemprop="name">
+                            {{ site.data.authors[author].name }}
+                        </a>
+                    {% else %}
+                        ,
+                        <a href="{{ site.baseurl }}/authors/{{ author }}" itemprop="name">
+                            {{ site.data.authors[author].name }}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         </span>
     </p>
   </header>
