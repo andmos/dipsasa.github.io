@@ -63,6 +63,7 @@ Ordene kommer som forslag, men du har mulighet til å velge å ikke bruke forsla
 Dette er en trafikkapplikasjon som i sanntid hjelper deg med å finne de mest effektive rutene basert på brukerinput fra andre trafikanter. På denne måten kan du derfor få varsler om politi, ulykker, veisperringer og trafikkork på forhånd, før du står midt oppi det.
 Dette et godt eksempel på en applikasjon som er både agent og assisterende. Du får forslag til bedre trafikkruter uten å sjekke opp kart og trafikkmeldinger manuelt, og du kan selv velge hvilken vei du vil dra.  
 
+{: .center}
 ![Waze](../../../img/lao/waze2.jpg)
 
 **Spotify Discover Weekly**
