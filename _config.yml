@@ -28,3 +28,7 @@ markdown: kramdown
 # Tagging
 tag_page_layout: tag_page
 tag_page_dir: tag
+
+sass:
+  sass_dir: _sass
+  style: compressed
