@@ -260,8 +260,10 @@
 
 .post-link {
     display: block;
-    font-size: 40px;
+    font-size: $title-font-size;
     color:$post-link-color !important;
+    letter-spacing: -1px;
+    line-height: 1;
     
     &:hover {
         color: $post-link-color;
@@ -292,7 +294,7 @@
 }
 
 .post-title {
-    font-size: 42px;
+    font-size: $title-font-size;
     letter-spacing: -1px;
     line-height: 1;
 

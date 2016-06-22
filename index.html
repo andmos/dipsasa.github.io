@@ -7,12 +7,15 @@ layout: default
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
-        <h2 class="post-heading padd">
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-        
-        <span class="post-meta padd">
-          {{ post.date | date: "%b %-d, %Y" }}
+        <header class="post-header padd">
+            <h1 class="post-title">
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+            </h1>
+            <p class="post-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}" 
+              itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}
+        </time>
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
             {% assign authorCount = post.author | size %}
         
             {% if authorCount == 1 %}
@@ -40,7 +43,9 @@ layout: default
                 {% endfor %}
             {% endif %}
         </span>
-        
+    </p>
+        </header>
+       
         {% if post.img %}
         <div class="post-img-wrapper">
             <img class="post-img" src="{{post.img}}"></img>
