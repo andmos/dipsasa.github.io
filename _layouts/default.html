@@ -17,12 +17,13 @@
 
     {% include footer.html %}
 
-    <noscript id="deferred-styles">
-      <link rel="stylesheet" type="text/css" href="{{ "/css/main.css" | prepend: site.baseurl }}"/>
-    </noscript>
+    <!--<noscript id="deferred-styles">
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic,300,300italic,600,600italic,800,800italic' rel='stylesheet' type='text/css'>
+    </noscript>-->
 
     <!--CSS-->
-    <script>var loadDeferredStyles=function(){var e=document.getElementById("deferred-styles"),t=document.createElement("div");t.innerHTML=e.textContent,document.body.appendChild(t),e.parentElement.removeChild(e)},raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;raf?raf(function(){window.setTimeout(loadDeferredStyles,0)}):window.addEventListener("load",loadDeferredStyles);</script>
+    <!--<script>var loadDeferredStyles=function(){var e=document.getElementById("deferred-styles"),t=document.createElement("div");t.innerHTML=e.textContent,document.body.appendChild(t),e.parentElement.removeChild(e)},raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;raf?raf(function(){window.setTimeout(loadDeferredStyles,0)}):window.addEventListener("load",loadDeferredStyles);</script>-->
     <!--Facebook-->
     <script>!function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/nb_NO/sdk.js#xfbml=1&version=v2.6&appId=217800944946430",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");</script>
     <!--Twitter-->
