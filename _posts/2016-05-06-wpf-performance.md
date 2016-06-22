@@ -51,6 +51,7 @@ Når vi har verifisert problemet, kan vi se på årsaken. `UI thread utilization
 
 Her et eksempel fra en modul DIPS Arena:
 
+{: .center}
 ![Eksempelprofilering av DIPS Arena modul](../../../img/timeline-arena.png)
 
 [Dette er en Arena-modul som bruker for lang tid på å lastes pga. kompleks layout.](http://pelebyte.net/blog/2011/07/11/twelve-ways-to-improve-wpf-performance/#VisualTree) Kompleks i denne sammenhengen er å f.eks. bruke flere Grids og dype trær for å oppnå noe som egentlig krever kun et Grid. Tommelfingerregelen er at 1 000 visuelle elementer som skal legges ut, kan gi opptil 1 sekunds venting. Microsoft har en grense på 1 500 – 2 000 elementer i Visual Studio. 
@@ -75,6 +76,7 @@ Dette fungerer på vanlig Library-prosjekt ved å legge inn følgende i prosjekt
 
 DIPS Arena bruker [Managed Extensibility Framework (MEF)]( https://msdn.microsoft.com/en-us/library/dd460648(v=vs.110).aspx) for å sette sammen applikasjonen. De forskjellige skjermbildene kommer fra forskjellige moduler, og alt blir satt sammen når applikasjonen starter.
 
+{: .center}
 ![Modulær oppbygging](../../../img/prism.png)
 
 Basert på funn fra profilering fant vi flere forbedringer rundt ressurshåndteringen i de forskjellige modulene:
