@@ -38,7 +38,7 @@ Siden DIPS Arena er en modulær applikasjon, har vi funnet fram til noen egne pu
 
 Her er et worst case-eksempel på hvordan det kan se ut:
 
-![Timeline-visning fra en testapplikasjon](../../../img/timeline.png)
+![Timeline-visning fra en testapplikasjon](../../../img/roh/timeline.png)
 
 Se først på grafen `Visual throughput (FPS)`, lilla linje. Grafen går i bunn og brukeren opplever 0 FPS flere ganger.
 
