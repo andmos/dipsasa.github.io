@@ -7,7 +7,7 @@ tags: [CSharp, WPF, XAML, Ytelse]
 
 Neste generasjon av DIPS, DIPS Arena, er en Windows Desktop-applikasjon skrevet i WPF. 
 
-![Skjermbilde av DIPS Arena](../../../img/arena.png)
+![Skjermbilde av DIPS Arena](../../../img/arena.jpg)
 
 WPF er et meget kraftig UI-rammeverk, men nesten alle tilfeller og situasjoner kan løses på flere måter. Dermed finnes det både gode og dårlige løsninger på de fleste utfordringer. Her er noe av det vi har lært om ytelse i WPF under en profileringsrunde vi har kjørt i vår.
 
