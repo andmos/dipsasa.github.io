@@ -1,10 +1,6 @@
 require "rubygems"
 require "tmpdir"
 
-
-require "jekyll"
-
-
 # Change your GitHub reponame
 GITHUB_REPONAME = "dipsasa/dipsasa.github.io"
 
@@ -17,6 +13,10 @@ task :generate do
   })).process
 end
 
+desc 'Preview the site with Jekyll'
+task :preview do
+    sh "jekyll serve --watch --drafts --baseurl '' --config _config.yml"
+end
 
 desc "Generate and publish blog to gh-pages"
 task :publish => [:generate] do
