@@ -1,0 +1,2 @@
+Der hvor jeg har sjekket inn fiks til Chocolatey
+Si at "fordi vi er glade i open soruce prosjekter" har vi valgt å bidra
