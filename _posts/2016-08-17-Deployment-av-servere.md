@@ -10,13 +10,13 @@ Jeg heter Bjørn-Petter Johannessen og er i dag medisinstudent. På grunn av tek
 
 <!--more-->
 
-## Fra MSI til scriptbar installasjon
+## Fra MSI til skriptbar installasjon
 
 Tradisjonelt er DIPS Classic en monolitisk applikasjon som blir publisert til kunden vha. MSI. Dette fungerer bra når man har én, eller i alle fall ganske få, MSI-pakker som systemet består av.
 
 DIPS Arena er en plugin-basert applikasjon. Arena kan kjøre med få eller mange moduler installert avhengig av kundens behov. Siden antallet MSI-er da økte betraktelig, trengte vi en bedre måte å publisere programvaren på.
 
-Løsningen ble en scriptbar installasjon basert på [Chocolatey](https://chocolatey.org/). Fordelen med dette er en enklere og plug-in-basert installasjon. Kunden kjører ett PowerShell-script som starter installasjonen av det vi har pakket. Dette scriptet kan modifiseres av kunden dersom det er noen spesielle behov. Vi har lagt til rette for å kunne legge inn kode som kjøres før og etter vårt installasjonsscript. Det er også mulig å skrive om PowerShell-scriptet, eller lage sin egen måte å installere DIPS på. 
+Løsningen ble en skriptbar installasjon basert på [Chocolatey](https://chocolatey.org/). Fordelen med dette er en enklere og plug-in-basert installasjon. Kunden kjører ett PowerShell-skript som starter installasjonen av det vi har pakket. Dette skriptet kan modifiseres av kunden dersom det er noen spesielle behov. Vi har lagt til rette for å kunne legge inn kode som kjøres før og etter vårt installasjonsskript. Det er også mulig å skrive om PowerShell-skriptet, eller lage sin egen måte å installere DIPS på. 
 
 ## Men, hold an litt.. Hva er PowerShell, NuGet og Chocolatey?
 
@@ -29,16 +29,16 @@ Løsningen ble en scriptbar installasjon basert på [Chocolatey](https://chocola
 
 Pakkebehandleren (`nuget.exe`), pakkeformatet(`*.nuspec` filer), NuGet pakker(`*.nupkg` filer) og den offisielle nettsiden hvor du kan laste ned pakker(`nuget.org`) heter så å si det samme. Videre vil vi i hovedsak referere til NuGet pakker når vi nevner NuGet. 
 
-![NuGet](../../../img/bpj/nuget.png)
+![NuGet](../../../img/bpj/NuGet.png)
 
 ### Chocolatey 
-[Chocolatey](https://chocolatey.org/) er en installasjonsmekansime som benytter NuGet-formatet for å distribuere og installere pakker. En Chocolatey-pakke er tilsynelatende lik en vanlig NuGet-pakke, med unntak av en ting: En Chocolatey pakke har en script kalt ``ChocolateyInstall.ps1`` pakket med som beskriver hvordan pakken skal installeres. Chocolatey kan benytte en  `Packages.config` fil som inneholder pakkene man ønsker å installere. En Chocolatey-pakke kan også ta mot parametere, som vi har samlet i en egen `parameters.config` fil. Konfigurasjonsparametrene blir lagt inn i DIPS sin konfigurasjon ved hjelp av en PowerShell-funksjon vi har laget og pakket med pakkene.
+[Chocolatey](https://chocolatey.org/) er en installasjonsmekansime som benytter NuGet-formatet for å distribuere og installere pakker. En Chocolatey-pakke er tilsynelatende lik en vanlig NuGet-pakke, med unntak av en ting: En Chocolatey pakke har en skript kalt ``ChocolateyInstall.ps1`` pakket med som beskriver hvordan pakken skal installeres. Chocolatey kan benytte en  `Packages.config` fil som inneholder pakkene man ønsker å installere. En Chocolatey-pakke kan også ta mot parametere, som vi har samlet i en egen `parameters.config` fil. Konfigurasjonsparametrene blir lagt inn i DIPS sin konfigurasjon ved hjelp av en PowerShell-funksjon vi har laget og pakket med pakkene.
 
 ## Installasjon
 
-Chocolatey som verktøy benytter seg av en pakkebrønn (eller webserver som tilbyr pakker om man vil) for å hente ned pakker. Siden vi idag ikke har en slik tjener som alle sykehusene når, har vi valgt å lage en "offline" installatør som benytter ferdig nedlastete Chocolatey-pakker og et enkelt wrapperscript som installerer disse. Det hele blir pakket via ZIP og distribuert ut på vår kundeportal. 
+Chocolatey som verktøy benytter seg av en pakkebrønn (eller webserver som tilbyr pakker om man vil) for å hente ned pakker. Siden vi idag ikke har en slik tjener som alle sykehusene når, har vi valgt å lage en "offline" installatør som benytter ferdig nedlastede Chocolatey-pakker og et enkelt wrapper-skript som installerer disse. Det hele blir pakket via ZIP og distribuert ut på vår kundeportal. 
 
-I _svært_ korte trekk består installasjonsscriptet vårt av:
+I _svært_ korte trekk består installasjonsskriptet vårt av:
 
 {% highlight powershell %}
 Function Install-DIPS
@@ -104,13 +104,13 @@ Packages to be installed:
 Deretter lagde vi en issue hos Chocolatey på dette. Siden Chocolatey er åpen kildekode, skrev [Andreas Mosti](/authors/anm) C#-koden som løste issuen. Dette er med i [Chocolatey versjon 0.10.0](https://github.com/chocolatey/choco/issues/878). 
 
 ## Hvordan kan kundene rulle ut programvare?
-Vi har lagt til rette for å bruke vår installasjon på både servere og klienter. Kundene står fritt til å installere vår programvare slik de selv vil. Spesielt på klientsiden finnes det mange alternativer, bl.a. Microsoft System Center Configuration Manager og Altiris. Klienten kan enkelt rulles ut med disse verktøyene uten å bruke vårt installasjonsscript.
+Vi har lagt til rette for å bruke vår installasjon på både servere og klienter. Kundene står fritt til å installere vår programvare slik de selv vil. Spesielt på klientsiden finnes det mange alternativer, bl.a. Microsoft System Center Configuration Manager og Altiris. Klienten kan enkelt rulles ut med disse verktøyene uten å bruke vårt installasjonsskript.
 
-Scriptene er laget slik at kundene selv kan modifisere dem etter deres behov. Vi tar også mer enn gjerne imot tilbakemeldinger fra våre kunder. 
+Skriptene er laget slik at kundene selv kan modifisere dem etter deres behov. Vi tar også mer enn gjerne imot tilbakemeldinger fra våre kunder. 
 
-## Vårt installasjonsscript i fremtiden
+## Vårt installasjonsskript i fremtiden
 I skrivende stund er det funksjonalitet vi savner i Chocolatey. Allerede installerte pakker kan reinstalleres med å legge på `-force`-parameteret, men man kan ikke velge hvilke pakker man ønsker å reinstallere. I tillegg er all output direkte fra Chocolatey, og vi gjør ingen parsing av denne. Vi ønsker å få plass en bedre håndtering av advarsler og feilmeldinger slik at det blir lettere å feilsøke installasjoner.
 
 ## Konklusjon
 
-Med en modularisert arkitektur, må utrullingen av applikasjonen være smidig. Chocolatey gir oss blant annet avhengighetshåndtering mellom pakker, og sørger for at vi alltid får med oss bitene en modul er avhengig av. Tiden med avglemte MSI-pakker er derfor forbi. Så langt har utrulling av DIPS i våre testmiljøer fungert mye mer effektivt, med store muligheter for scriptbarhet og automasjon.
+Med en modularisert arkitektur, må utrullingen av applikasjonen være smidig. Chocolatey gir oss blant annet avhengighetshåndtering mellom pakker, og sørger for at vi alltid får med oss bitene en modul er avhengig av. Tiden med avglemte MSI-pakker er derfor forbi. Så langt har utrulling av DIPS i våre testmiljøer fungert mye mer effektivt, med store muligheter for skriptbarhet og automasjon.
