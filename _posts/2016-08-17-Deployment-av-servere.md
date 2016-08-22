@@ -12,7 +12,7 @@ Jeg heter Bjørn-Petter Johannessen og er i dag medisinstudent. På grunn av tek
 
 ## Fra MSI til scriptbar installasjon
 
-Tradisjonellt er DIPS Classic en monolitisk applikasjon som blir publisert til kunden vha. MSI. Dette fungerer bra når man har én, eller i alle fall ganske få, MSI-pakker som systemet består av.
+Tradisjonelt er DIPS Classic en monolitisk applikasjon som blir publisert til kunden vha. MSI. Dette fungerer bra når man har én, eller i alle fall ganske få, MSI-pakker som systemet består av.
 
 DIPS Arena er en plugin-basert applikasjon. Arena kan kjøre med få eller mange moduler installert avhengig av kundens behov. Siden antallet MSI-er da økte betraktelig, trengte vi en bedre måte å publisere programvaren på.
 
@@ -36,7 +36,7 @@ Pakkebehandleren (`nuget.exe`), pakkeformatet(`*.nuspec` filer), NuGet pakker(`*
 
 ## Installasjon
 
-Chocolatey som verktøy benytter seg av en pakkebrønn (eller webserver som tilbyr pakker om man vil) for å hente ned pakker. Siden vi idag ikke har en slik tjener som alle sykehusene når, har vi valgt å lage en "offline" installatør som benytter ferdig nedlastete Chocolatey-pakker og et enkelt wrapperscript som installerer disse. Det hele blir pakket via ZIP og distribuert ut på vår kundebortal. 
+Chocolatey som verktøy benytter seg av en pakkebrønn (eller webserver som tilbyr pakker om man vil) for å hente ned pakker. Siden vi idag ikke har en slik tjener som alle sykehusene når, har vi valgt å lage en "offline" installatør som benytter ferdig nedlastete Chocolatey-pakker og et enkelt wrapperscript som installerer disse. Det hele blir pakket via ZIP og distribuert ut på vår kundeportal. 
 
 I _svært_ korte trekk består installasjonsscriptet vårt av:
 
@@ -72,7 +72,7 @@ Install-DIPS -InstallChocolatey -PackagesConfigFile Packages.config -ParametersF
     ..
 {% endhighlight %}
 
-`parameters.config` inneholder konfigurasjonen som kunden må endre, bl.a. installasjonslokalasjon for klienten og serveradresse:
+`parameters.config` inneholder konfigurasjonen som kunden må endre, bl.a. installasjonslokasjon for klienten og serveradresse:
 
 {% highlight xml %}
 
@@ -113,4 +113,4 @@ I skrivende stund er det funksjonalitet vi savner i Chocolatey. Allerede install
 
 ## Konklusjon
 
-Med en modularisert arkitektur, må utrullingen av applikasjonen være smidig. Chocolatey gir oss blant annet avhengihetshåntering mellom pakker, og sørger for at vi alltid får med oss bitene en modul er avhengig av. Tiden med avglemte MSI-pakker er derfor forbi. Så langt har utrulling av DIPS i våre testmiljøer fungert mye mer effektivt, med store muligheter for scriptbarhet og automasjon.
+Med en modularisert arkitektur, må utrullingen av applikasjonen være smidig. Chocolatey gir oss blant annet avhengighetshåndtering mellom pakker, og sørger for at vi alltid får med oss bitene en modul er avhengig av. Tiden med avglemte MSI-pakker er derfor forbi. Så langt har utrulling av DIPS i våre testmiljøer fungert mye mer effektivt, med store muligheter for scriptbarhet og automasjon.
