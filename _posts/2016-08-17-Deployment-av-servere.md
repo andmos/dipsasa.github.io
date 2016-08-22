@@ -6,9 +6,9 @@ tags: [powershell, nuget, chocolatey, installasjon]
 ---
 Vi i DIPS ASA ønsker å legge til rette for enkel deployment av programvaren vår på kundenes maskinvare. La oss ta en titt hva vi gjør for å komme i mål med dette med [PowerShell](https://msdn.microsoft.com/en-us/powershell/mt173057.aspx), [NuGet](https://www.nuget.org/) og [Chocolatey](https://chocolatey.org/).    
 
-<!--more-->
-
 Jeg heter Bjørn-Petter Johannessen og er i dag medisinstudent. På grunn av teknisk bakgrunn fra Helse Nord IKT har jeg sett på og forbedret installasjonsprosessen av DIPS sin programvare.
+
+<!--more-->
 
 ## Fra MSI til scriptbar installasjon
 
@@ -99,7 +99,7 @@ Packages to be installed:
  ...
 {% endhighlight %}
 
-Deretter lagde vi en issue hos Chocolatey på dette. Siden vi er fans av åpen kildekode, skrev [Andreas Mosti](/authors/anm) C#-koden som løste issuen. Dette er planlagt med i [Chocolatey versjon 0.9.10.4](https://github.com/chocolatey/choco/issues/878).
+Deretter lagde vi en issue hos Chocolatey på dette. Siden Chocolatey er åpen kildekode, skrev [Andreas Mosti](/authors/anm) C#-koden som løste issuen. Dette er med i [Chocolatey versjon 0.10.0](https://github.com/chocolatey/choco/issues/878). 
 
 ## Hvordan kan kundene rulle ut programvare?
 Vi har lagt til rette for å bruke vår installasjon på både servere og klienter. Kundene står fritt til å installere vår programvare slik de selv vil. Spesielt på klientsiden finnes det mange alternativer, bl.a. Microsoft System Center Configuration Manager og Altiris. Klienten kan enkelt rulles ut med disse verktøyene uten å bruke vårt installasjonsscript.

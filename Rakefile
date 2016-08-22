@@ -1,5 +1,6 @@
 require "rubygems"
 require "tmpdir"
+require "jekyll"
 
 # Change your GitHub reponame
 GITHUB_REPONAME = "dipsasa/dipsasa.github.io"
