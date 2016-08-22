@@ -25,7 +25,7 @@ Løsningen ble en scriptbar installasjon basert på [Chocolatey](https://chocola
 [PowerShell](https://msdn.microsoft.com/en-us/powershell/mt173057.aspx) ble lansert i 2006 som standard Shell på Windows Server, og er ment for å automatisere administrative oppgaver i Windows. Vi har brukt PowerShell for å kalle `choco install`, parse output fra Chocolatey og til å behandle konfigurasjonen for DIPS-pakkene.
 
 ### NuGet
-[NuGet](https://www.nuget.org/) er pakkebehandleren Microsoft har laget for .NET, og brukes til å installere kodebiblioteker og -avhengigeter. Ruby har gems, Python har pip, JavaScript har nmp og .NET har NuGet. I oppførsel kan en NuGet pakke sees på som [en ZIP-pakke med litt meta-data](https://docs.nuget.org/create/nuspec-reference), som id, versjonsnummer, tittel, osv. 
+[NuGet](https://www.nuget.org/) er pakkebehandleren Microsoft pusher for .NET som brukes til å installere kodebiblioteker og -avhengigeter. Ruby har gems, Python har pip, JavaScript har nmp og .NET har NuGet. I oppførsel kan en NuGet pakke sees på som [en ZIP-pakke med litt meta-data](https://docs.nuget.org/create/nuspec-reference), som id, versjonsnummer, tittel, osv. 
 
 Pakkebehandleren (`nuget.exe`), pakkeformatet(`*.nuspec` filer), NuGet pakker(`*.nupkg` filer) og den offisielle nettsiden hvor du kan laste ned pakker(`nuget.org`) heter så å si det samme. Videre vil vi i hovedsak referere til NuGet pakker når vi nevner NuGet. 
 
