@@ -14,7 +14,7 @@ Ansible bruker SSH på Linux eller WinRM for Windows for å provisjonere servere
 
 ## Ansible i praksis
 
-Selv om maskinene man ønsker å kontrollere kan kjøre Linux, Windows eller BSD må selve kontroller-maskinen kjøre på Linux eller OS X. For å installere Ansible. [Følgende guide](https://docs.ansible.com/ansible/intro_installation.html) guider gjennom oppsett på ønsket *nix plattform.
+Selv om maskinene man ønsker å kontrollere kan kjøre Linux, Windows eller BSD må selve kontroller-maskinen kjøre på Linux eller OS X. For å installere Ansible vil [følgende guide](https://docs.ansible.com/ansible/intro_installation.html) ta oss gjennom oppsett på ønsket *nix plattform.
 For å vise hvordan vi har eksperimentert i bruk Ansible følger her en del eksempler på oppbyggning og filstruktur. Vi benytter mye Windows Server i DIPS, så de fleste eksemplene er for denne platformen.
 
 ### Relevante servere
@@ -26,11 +26,11 @@ Etter Ansible-sjargong defineres servere etter ansvarsområde. Det kan være web
 vt-build01.domain.local
 
 [appservers]
-vt-build01.domain.local
-vt-build01.domain.local
+vt-app01.domain.local
+vt-app04.domain.local
 ```
 
-`ìnventory`` filen gjør heller ikke forskjell på om serveren kjører Windows eller Linux - det bestemmes av rollene.
+`ìnventory` filen gjør heller ikke forskjell på om serveren kjører Windows eller Linux - det bestemmes av rollene.
 
 ### Roller
 
